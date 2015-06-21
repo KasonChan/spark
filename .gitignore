@@ -1,0 +1,7 @@
+# Project
+project
+target
+.idea
+
+# Mac
+.DS_Store
