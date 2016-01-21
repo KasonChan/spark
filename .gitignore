@@ -2,6 +2,7 @@
 project
 target
 .idea
+**/lib_managed
 
 # Mac
 .DS_Store
