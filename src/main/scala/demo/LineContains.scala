@@ -7,7 +7,7 @@ import scala.util.{Failure, Success, Try}
 /**
   * Created by kasonchan on 6/22/15.
   */
-object Demo {
+object LineContains {
 
   def main(args: Array[String]) {
     Try {
