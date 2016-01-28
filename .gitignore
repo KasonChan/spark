@@ -1,7 +1,12 @@
 # Project
-project
-target
-.idea
+*.iml
+**/target/
+**/.idea/
+**/.idea_modules/
+.cache
+.settings
+.project
+.classpath
 **/lib_managed
 
 # Mac
