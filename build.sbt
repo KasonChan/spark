@@ -7,7 +7,8 @@ scalaVersion := "2.11.7"
 libraryDependencies ++= Seq(
   "org.apache.spark" %% "spark-core" % "1.6.0",
   "org.scalacheck" %% "scalacheck" % "1.12.5",
-  "org.scalatest" %% "scalatest" % "2.2.5"
+  "org.scalatest" %% "scalatest" % "2.2.5",
+  "com.typesafe.play" % "play_2.11" % "2.3.10"
 )
 
 retrieveManaged := true
