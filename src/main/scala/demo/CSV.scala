@@ -43,7 +43,15 @@ object CSV {
         .filter(x => !x(4).contains("NA") && !x(5).contains("NA") && x(5).toDouble > x(4).toDouble)
         .groupBy(y => y(3))
         .map(x => x._1)
-        .foreach(println)
+      dates.foreach(println)
+
+      // Q3 What is the lowest (most negative) mid-day water potential in this data set?
+      // When and for which species was this value recorded?
+      val lowestMdPSI = csvLinesDropedHead.map(l => l.split(","))
+        .fold(Array("", "", "", "", "", "0", ""))((m, i) => if (!i(5).contains("NA") && i(5).toDouble < m(5).toDouble) i else m)
+      println("The lowest mid-day water potential in this data set is " +
+        lowestMdPSI(5) + ", it is recorded on " + lowestMdPSI(3) + " for " +
+        lowestMdPSI(2) + " sp.")
     } match {
       case Success(s) =>
       case Failure(f) => println(f)
