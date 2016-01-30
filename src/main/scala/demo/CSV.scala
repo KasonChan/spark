@@ -47,11 +47,25 @@ object CSV {
 
       // Q3 What is the lowest (most negative) mid-day water potential in this data set?
       // When and for which species was this value recorded?
+      // The lowest mid-day water potential in this data set is -6.75, it is
+      // recorded on "04/10/11" for "QUGR3 " sp.
       val lowestMdPSI = csvLinesDropedHead.map(l => l.split(","))
         .fold(Array("", "", "", "", "", "0", ""))((m, i) => if (!i(5).contains("NA") && i(5).toDouble < m(5).toDouble) i else m)
       println("The lowest mid-day water potential in this data set is " +
         lowestMdPSI(5) + ", it is recorded on " + lowestMdPSI(3) + " for " +
         lowestMdPSI(2) + " sp.")
+
+      // Q4 For which year was the average mid day water potential lowest (most negative)?
+      // 11
+      val lowestMdPSIAverageYear = csvLinesDropedHead.map(l => l.split(","))
+        .groupBy(_ (6))
+        .map(i => (i._1, i._2.map(x => x(5))))
+        .map(i => (i._1, i._2.filter(j => !j.contains("NA"))))
+        .map(i => (i._1, i._2.map(j => j.toDouble)))
+        .map(i => (i._1, i._2.sum / i._2.toList.length))
+        .fold("", 0.0)((m, i) => if (i._2 < m._2) i else m)._1
+
+      println(lowestMdPSIAverageYear)
     } match {
       case Success(s) =>
       case Failure(f) => println(f)
