@@ -66,6 +66,8 @@ object CSV {
         .fold("", 0.0)((m, i) => if (i._2 < m._2) i else m)._1
 
       println(lowestMdPSIAverageYear)
+
+      scala.io.StdIn.readLine() // For spark ui: http://localhost:4040/
     } match {
       case Success(s) =>
       case Failure(f) => println(f)

@@ -22,6 +22,8 @@ object LineContains {
       case Success(s) =>
       case Failure(f) => println(f)
     }
+
+    scala.io.StdIn.readLine() // For spark ui: http://localhost:4040/
   }
 
 }

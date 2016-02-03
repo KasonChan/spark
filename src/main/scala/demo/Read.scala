@@ -71,6 +71,8 @@ object Read {
     }
 
     writer.close()
+
+    scala.io.StdIn.readLine() // For spark ui: http://localhost:4040/
   }
 
 }
